@@ -1,0 +1,31 @@
+{
+    "name": "kouz/laravel-log",
+    "description": "Laravel package which binds a logger to all events to add generalised logging to your app.",
+    "type": "library",
+    "keywords": ["laravel", "log", "logging"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Theo Kouzelis",
+            "email": "tkouzelis@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kouz\\LaravelLog\\": "src/"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.5"
+    },
+    "require": {},
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kouz\\LaravelLog\\LogEventServiceProvider"
+            ]
+        }
+    }
+}

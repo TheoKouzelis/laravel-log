@@ -149,14 +149,14 @@ class LogEventSubscriber
         $this->log->info("Database: {$event->connectionName} has rolled back a transaction");
     }
 
-    public function logDatabaseTransactionRollBack($event)
+    public function logLocaleUpdate($event)
     {
         $this->log->info("Locale: locale has been updated to {$event->locale} has rolled back a transaction");
     }
 
     public function logRequest($event)
     {
-        $this->log->info("Http: {$this->getUserName($event->request->user())} request for {$event->request->fullUrl()} was responded with {$event->response->status())}");
+        $this->log->info("Http: {$this->getUserName($event->request->user())} request for {$event->request->fullUrl()} was responded with {$event->response->status()}");
     }
 
     public function logMessageSending($event)
@@ -164,7 +164,7 @@ class LogEventSubscriber
         $this->log->info("Mail: sending '{$event->message->getSubject()}' mail");
     }
 
-    public function logMessageSending($event)
+    public function logMessageSent($event)
     {
         $this->log->info("Mail: mail '{$event->message->getSubject()}' sent");
     }
@@ -205,6 +205,6 @@ class LogEventSubscriber
             return 'anonymous user';
         }
 
-        return "user ({$event->user->getAuthIdentifierName()} {$event->user->getAuthIdentifier()})";
+        return "user ({$user->getAuthIdentifierName()} {$user->getAuthIdentifier()})";
     }
 }
